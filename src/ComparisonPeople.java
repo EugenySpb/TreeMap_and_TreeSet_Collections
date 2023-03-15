@@ -9,8 +9,8 @@ public class ComparisonPeople implements Comparator<Person> {
 
     @Override
     public int compare(Person o1, Person o2) {
-        String[] o1SurnameWords = o1.getSurname().split(" ");
-        String[] o2SurnameWords = o2.getSurname().split(" ");
+        String[] o1SurnameWords = o1.getSurname().split("\\s|-");
+        String[] o2SurnameWords = o2.getSurname().split("\\s|-");
         int o1SurnameWordsCount = o1SurnameWords.length;
         int o2SurnameWordsCount = o2SurnameWords.length;
 
