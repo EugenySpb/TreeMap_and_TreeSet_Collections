@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args) {
         List<Person> people = new ArrayList<>();
         people.add(new Person("Volan", "De Mort", 72));
-        people.add(new Person("Harry", "Potter", 20));
-        people.add(new Person("Draco", "Malfoy", 19));
-        people.add(new Person("Hermione", "Granger", 21));
+        people.add(new Person("Harry", "Potter", 12));
+        people.add(new Person("Draco", "Malfoy", 15));
+        people.add(new Person("Hermione", "Granger", 13));
         people.add(new Person("Ronald", "Weasley", 22));
         people.add(new Person("Bartemius", "Crouch Jr", 35));
         people.add(new Person("Albus", "Percival Wulfric Brian Dumbledore", 115));
@@ -17,10 +17,10 @@ public class Main {
         System.out.println(people.toString().replaceAll("^\\[|]$", ""));
         System.out.println();
 
+        people.removeIf(person -> person.getAge() < 18);
+
         ComparisonPeople comparator = new ComparisonPeople(2);
         Collections.sort(people, comparator);
-        for (Person person : people) {
-            System.out.println(person.toString());
-        }
+        people.forEach(System.out::println);
     }
 }
